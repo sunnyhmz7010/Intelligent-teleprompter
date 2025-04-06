@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: #000;
+  --inscription-width: 80%;
+  --inscription-size: 8px;
+  --inscription-color: #fff;
+  --inscription-align: left;
+  --inscription-indent: 0;
+  --inscription-spacing: 0;
+}
+
+svg {
+  fill: #fff;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.transform {
+  transition: 0.3s transform;
+}
+
+.cursor {
+  cursor: pointer;
+}

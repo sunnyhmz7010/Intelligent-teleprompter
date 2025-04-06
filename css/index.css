@@ -1,0 +1,121 @@
+.main {
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--background-color);
+}
+
+.menu {
+  position: relative;
+  flex-wrap: wrap;
+  line-height: 16px;
+  background-color: #333;
+  color: #fff;
+}
+
+.menu-fold {
+  position: absolute;
+  width: fit-content;
+  padding: 2px 12px;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: inherit;
+  border-radius: 0 0 6px 6px;
+}
+
+.menu.close {
+  transform: translateY(-100%);
+}
+
+.menu.close > .menu-fold > .transform {
+  transform: rotate(180deg);
+}
+
+.menu-options {
+  display: flex;
+  height: 42px;
+  gap: 0 8px;
+}
+
+.menu-options + .menu-options {
+  margin-left: 8px;
+}
+
+.menu-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 100%;
+}
+
+.menu-option > label {
+  display: flex;
+  align-items: center;
+}
+
+.menu-option > label > span:last-child {
+  display: inline-block;
+  min-width: 1.2em;
+}
+
+.menu-option-title + input {
+  width: 80px;
+  margin: 8px;
+}
+
+.menu-option-title:active {
+  transform: scale(0.9);
+}
+
+#inscription {
+  width: var(--inscription-width);
+  height: 100%;
+  margin: auto;
+  font-size: var(--inscription-size);
+  color: var(--inscription-color);
+  text-align: var(--inscription-align);
+  text-indent: var(--inscription-indent);
+  letter-spacing: var(--inscription-spacing);
+  background-color: inherit;
+  outline: none;
+  resize: none;
+  /* 放大4倍,其他需要除4 */
+  zoom: 400%;
+}
+
+#inscription::-webkit-scrollbar {
+  display: none;
+}
+
+#toast {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #0000008c;
+}
+
+#toast.show {
+  display: flex;
+}
+
+.toast-box {
+  width: auto;
+  min-width: 120px;
+  max-width: 50%;
+  max-height: 50%;
+  overflow: auto;
+  color: #fff;
+  word-break: break-all;
+  background-color: #000000b3;
+  border-radius: 8px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  padding: 16px;
+  border: 2px solid #fff;
+  text-align: center;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>题词器</title>
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <div class="main flex-col">
+      <div class="menu flex justify-center transform">
+        <div class="menu-fold cursor">
+          <svg viewBox="0 0 1024 1024" width="16" height="16" class="transform">
+            <path
+              d="M845.433994 701.042263a28.148621 28.148621 0 0 1-39.845904 0l-288.422211-315.804981-288.494462 315.804981a28.148621 28.148621 0 0 1-39.845904 0c-10.945883-11.018133-10.945883-28.900021 0-39.954279l306.990475-336.107246c5.888379-5.852254 13.619135-8.381006 21.349891-8.019756 7.658506-0.36125 15.389261 2.131377 21.27764 8.019756L845.433994 661.087984c11.054258 11.054258 11.054258 28.936146 0 39.954279z"></path>
+          </svg>
+        </div>
+      </div>
+      <textarea id="inscription"></textarea>
+      <div id="toast" class="justify-center items-center" data-state="loading">
+        <div class="toast-box"></div>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+    <script src="./js/templates.js"></script>
+    <script src="./js/menus.js"></script>
+    <script src="./js/plugins.js"></script>
+    <script>
+      const context = `您好，欢迎使用在线提词器！
+在线提词器无需安装，完全免费且无任何使用限制。
+无论您是在台式机、平板电脑还是智能手机上，都能轻松实现文本提示。
+您可以直接在提词器内编辑文本，或导入本地TXT文档内容。
+通过点击上方按钮，您可以自由调整字体颜色、背景颜色、字体大小、滚动速度以及编辑区宽度。
+此外，我们还提供了页面水平/垂直镜像功能，并允许您拖动参考线位置，以满足不同的使用需求。
+所有编辑的内容及样式将自动保存在您的浏览器缓存中，
+下次打开网页时即可自动加载之前编辑的内容。
+结束时，您还可以将词条导出为本地TXT文档。
+
+为了方便您的操作，我们特别设置了键盘快捷键：
+Shift+空格键：开始/停止提词器
+Shift+R 键: 复位
+Shift+F 键: 全屏
+Shift+H 键：水平镜像
+Shift+V 键：垂直镜像
+Shift+O 键：打开文件
+Shift+S 键：保存文件
+Shift+加号: 加大字体
+Shift+减号: 减小字体
+Shift+上箭头: 提词速度加快
+Shift+下箭头: 提词速度减慢
+Shift+左箭头: 编辑区变窄
+Shift+右箭头: 编辑区变宽
+Shift+K 键: 显示/隐藏工具栏
+鼠标悬停在按钮上就会有快捷键提示哦！
+
+现在，您可以开始删除以上文字，并粘贴您的文本内容到提词器中进行编辑了。
+祝您使用愉快！
+`;
+
+      new Tool({ templates, config: menuConfig, context, plugins });
+    </script>
+  </body>
+</html>
