@@ -1,0 +1,22 @@
+# Node modules
+teleprompter-app/node_modules/
+teleprompter-app/.expo/
+teleprompter-app/dist/
+teleprompter-app/web-build/
+
+# Python
+python-backend/__pycache__/
+python-backend/*.py[cod]
+python-backend/venv/
+python-backend/env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
