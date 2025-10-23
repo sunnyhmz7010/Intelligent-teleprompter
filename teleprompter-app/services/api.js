@@ -1,12 +1,8 @@
 import axios from 'axios';
+import { getApiBaseURL } from '../config';
 
-// Configure your backend URL
-// For development on same machine: http://localhost:5000
-// For development on device: http://YOUR_COMPUTER_IP:5000
-// For production: https://your-backend-domain.com
-const API_BASE_URL = __DEV__ 
-  ? 'http://localhost:5000'  // Change this to your computer's IP for device testing
-  : 'https://your-production-backend.com';
+// Get the configured backend URL based on environment
+const API_BASE_URL = getApiBaseURL();
 
 /**
  * Check if the Python backend is running
