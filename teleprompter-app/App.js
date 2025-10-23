@@ -253,7 +253,6 @@ const styles = StyleSheet.create({
   },
   textInput: {
     fontFamily: Platform.OS === 'ios' ? 'System' : 'Roboto',
-    lineHeight: 1.5,
     textAlign: 'left',
   },
   menuToggleButton: {
