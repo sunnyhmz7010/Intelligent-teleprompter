@@ -5,6 +5,7 @@
 ## 系统要求 / System Requirements
 
 ### 必需 / Required
+- **操作系统 / OS**: Windows 10/11, macOS 10.14+, 或 Linux (Ubuntu 18.04+)
 - **Node.js**: 14.0 或更高版本 (推荐 16+)
 - **npm**: 6.0 或更高版本
 - **Python**: 3.8 或更高版本 (推荐 3.10+)
@@ -41,6 +42,44 @@ npm install
 
 ### 3. 设置 Python 后端 / Setup Python Backend
 
+#### Windows (推荐使用 PowerShell)
+
+**快速设置 (使用 PowerShell 脚本):**
+```powershell
+cd ..\python-backend
+.\setup.ps1
+```
+
+**或使用批处理脚本:**
+```cmd
+cd ..\python-backend
+setup.bat
+```
+
+**手动设置:**
+```powershell
+cd ..\python-backend
+
+# 创建虚拟环境 (推荐)
+python -m venv venv
+
+# 激活虚拟环境 (PowerShell)
+.\venv\Scripts\Activate.ps1
+
+# 或激活虚拟环境 (Command Prompt)
+# venv\Scripts\activate.bat
+
+# 安装依赖
+pip install -r requirements.txt
+```
+
+**注意**: 如果 PowerShell 报告执行策略错误，运行:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+#### macOS/Linux
+
 ```bash
 cd ../python-backend
 
@@ -48,10 +87,7 @@ cd ../python-backend
 python3 -m venv venv
 
 # 激活虚拟环境
-# macOS/Linux:
 source venv/bin/activate
-# Windows:
-# venv\Scripts\activate
 
 # 安装依赖
 pip install -r requirements.txt
@@ -89,20 +125,74 @@ npm start
 
 ### 启动 Python 后端 / Start Python Backend
 
-```bash
+#### Windows
+
+**使用 PowerShell 脚本 (推荐):**
+```powershell
+cd python-backend
+.\run.ps1
+```
+
+**使用批处理脚本:**
+```cmd
+cd python-backend
+run.bat
+```
+
+**手动启动:**
+```powershell
 cd python-backend
 
-# 如果使用虚拟环境，先激活它
-source venv/bin/activate  # macOS/Linux
-# venv\Scripts\activate  # Windows
+# 激活虚拟环境 (PowerShell)
+.\venv\Scripts\Activate.ps1
+
+# 或激活虚拟环境 (Command Prompt)
+# venv\Scripts\activate.bat
 
 # 启动服务器
 python server.py
 ```
 
+#### macOS/Linux
+
+```bash
+cd python-backend
+
+# 如果使用虚拟环境，先激活它
+source venv/bin/activate
+
+# 启动服务器
+python server.py
+```
+
+### 测试后端 / Test Backend
+
 服务器将在 `http://localhost:5000` 上运行
 
-测试后端:
+#### Windows
+
+**使用 PowerShell 脚本:**
+```powershell
+.\test.ps1
+```
+
+**使用批处理脚本:**
+```cmd
+test.bat
+```
+
+**使用 curl (Windows 10+):**
+```cmd
+curl http://localhost:5000/health
+```
+
+**使用 PowerShell:**
+```powershell
+Invoke-WebRequest -Uri http://localhost:5000/health
+```
+
+#### macOS/Linux
+
 ```bash
 curl http://localhost:5000/health
 ```
@@ -154,15 +244,41 @@ pip install flask-cors
 pip install python-docx
 ```
 
+**问题** (Windows): PowerShell 执行策略错误
+**解决方案**:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
 **问题**: 端口 5000 已被占用
 **解决方案**:
+
+*Windows (PowerShell):*
+```powershell
+$env:PORT = "5001"
+python server.py
+```
+
+*Windows (Command Prompt):*
+```cmd
+set PORT=5001
+python server.py
+```
+
+*macOS/Linux:*
 ```bash
-# 更改端口
 PORT=5001 python server.py
 ```
 
 **问题**: CORS 错误
 **解决方案**: 确保 Flask-CORS 已正确安装并在 server.py 中配置
+
+**问题** (Windows): Windows Firewall 阻止连接
+**解决方案**:
+1. 打开 Windows Defender 防火墙
+2. 点击 "允许应用或功能通过 Windows Defender 防火墙"
+3. 点击 "更改设置" 然后 "允许其他应用"
+4. 添加 Python 并允许在专用和公用网络上通信
 
 ## 开发提示 / Development Tips
 
@@ -217,6 +333,22 @@ gunicorn -w 4 -b 0.0.0.0:5000 server:app
 ### Python 后端配置 / Backend Configuration
 
 使用环境变量:
+
+**Windows (PowerShell):**
+```powershell
+$env:PORT = "5000"
+$env:FLASK_ENV = "development"
+python server.py
+```
+
+**Windows (Command Prompt):**
+```cmd
+set PORT=5000
+set FLASK_ENV=development
+python server.py
+```
+
+**macOS/Linux:**
 ```bash
 export PORT=5000           # 服务器端口
 export FLASK_ENV=development  # 开发/生产模式

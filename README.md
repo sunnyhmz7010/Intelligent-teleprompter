@@ -6,11 +6,20 @@
 
 智能提词器是一个专业的提词工具，适用于视频录制、演讲、直播等场景。本项目现在包含两个版本：
 
+**💻 支持平台 / Supported Platforms:**
+- ✅ Windows 10/11
+- ✅ macOS 10.14+
+- ✅ Linux (Ubuntu 18.04+)
+- ✅ iOS (通过 React Native)
+- ✅ Android (通过 React Native)
+- ✅ Web 浏览器
+
 ### 📱 React Native + Python 版本 (新增)
 - **移动优先设计**：专为移动设备优化的触摸界面
 - **跨平台支持**：支持 iOS、Android 和 Web
 - **Python 后端**：提供 DOCX 文件解析等高级功能
 - **现代技术栈**：使用 React Native (Expo) 和 Flask
+- **多平台兼容**：完整支持 Windows、macOS 和 Linux
 
 ### 🌐 原始 Web 版本
 - **无需安装**：直接在浏览器中使用
@@ -21,6 +30,24 @@
 
 ### React Native + Python 版本
 
+**Windows 用户 (推荐使用 PowerShell):**
+```powershell
+# 克隆仓库
+git clone https://github.com/sunnyhmz7010/Intelligent-teleprompter.git
+cd Intelligent-teleprompter
+
+# 启动移动应用
+cd teleprompter-app
+npm install
+npm start
+
+# (可选) 启动 Python 后端 - 在新终端窗口中
+cd ..\python-backend
+.\setup.ps1   # 首次运行
+.\run.ps1     # 启动服务器
+```
+
+**macOS/Linux 用户:**
 ```bash
 # 克隆仓库
 git clone https://github.com/sunnyhmz7010/Intelligent-teleprompter.git
@@ -31,7 +58,7 @@ cd teleprompter-app
 npm install
 npm start
 
-# (可选) 启动 Python 后端
+# (可选) 启动 Python 后端 - 在新终端窗口中
 cd ../python-backend
 pip install -r requirements.txt
 python server.py
@@ -106,6 +133,7 @@ Intelligent-teleprompter/
 
 - [快速开始指南 (QUICKSTART.md)](QUICKSTART.md) - 5分钟快速上手
 - [安装配置指南 (SETUP.md)](SETUP.md) - 完整的安装和配置说明
+- **[Windows 用户指南 (WINDOWS.md)](WINDOWS.md)** - Windows 平台专属指南
 - [React Native 详细说明 (README-REACT-NATIVE.md)](README-REACT-NATIVE.md) - 新版本详细介绍
 - [React Native 应用文档 (teleprompter-app/README.md)](teleprompter-app/README.md)
 - [Python 后端文档 (python-backend/README.md)](python-backend/README.md)

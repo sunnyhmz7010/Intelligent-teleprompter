@@ -59,10 +59,37 @@ npm start
 
 ### 2. Python 后端 / Python Backend
 
+#### Windows
+
+**快速启动 (PowerShell):**
+```powershell
+cd python-backend
+.\setup.ps1   # 首次运行
+.\run.ps1     # 启动服务器
+```
+
+**快速启动 (批处理):**
+```cmd
+cd python-backend
+setup.bat   # 首次运行
+run.bat     # 启动服务器
+```
+
+**手动设置:**
+```powershell
+cd python-backend
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python server.py
+```
+
+#### macOS/Linux
+
 ```bash
 cd python-backend
 python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
 python server.py
 ```
@@ -75,12 +102,15 @@ python server.py
 - Node.js 14+
 - npm 或 yarn
 - Expo CLI
-- iOS: macOS + Xcode
-- Android: Android Studio + Android SDK
+- **平台要求 / Platform Requirements:**
+  - **Windows**: Windows 10 或 11，用于 Android 开发需要 Android Studio
+  - **macOS**: macOS 10.14+，Xcode (用于 iOS 开发)
+  - **Linux**: Ubuntu 18.04+ 或其他发行版
 
 ### Python Backend
-- Python 3.8+
+- Python 3.8+ (推荐 3.10+)
 - pip
+- **支持平台**: Windows, macOS, Linux
 
 ## 使用说明 / Usage
 

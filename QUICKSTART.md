@@ -5,6 +5,20 @@
 ## 5 分钟快速开始 / 5-Minute Quick Start
 
 ### 1. 克隆项目 / Clone Project
+
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/sunnyhmz7010/Intelligent-teleprompter.git
+cd Intelligent-teleprompter
+```
+
+**Windows (Command Prompt):**
+```cmd
+git clone https://github.com/sunnyhmz7010/Intelligent-teleprompter.git
+cd Intelligent-teleprompter
+```
+
+**macOS/Linux:**
 ```bash
 git clone https://github.com/sunnyhmz7010/Intelligent-teleprompter.git
 cd Intelligent-teleprompter
@@ -24,6 +38,24 @@ npm start
 - 扫描二维码 → 在手机 Expo Go 应用中运行
 
 ### 3. (可选) 启动 Python 后端 / (Optional) Start Python Backend
+
+#### Windows (推荐使用 PowerShell)
+
+在新的 PowerShell 窗口中:
+```powershell
+cd python-backend
+.\setup.ps1   # 首次运行，设置环境
+.\run.ps1     # 启动服务器
+```
+
+或使用批处理脚本:
+```cmd
+cd python-backend
+setup.bat   # 首次运行，设置环境
+run.bat     # 启动服务器
+```
+
+#### macOS/Linux
 
 在新的终端窗口中:
 ```bash
@@ -98,6 +130,17 @@ python server.py
 ## 故障排除 / Troubleshooting
 
 ### 应用无法启动 / App Won't Start
+
+**Windows:**
+```powershell
+# 清除缓存并重新安装
+cd teleprompter-app
+Remove-Item -Recurse -Force node_modules, package-lock.json
+npm install
+npm start
+```
+
+**macOS/Linux:**
 ```bash
 # 清除缓存并重新安装
 cd teleprompter-app
@@ -107,9 +150,31 @@ npm start
 ```
 
 ### Python 后端连接失败 / Backend Connection Failed
+
+**Windows:**
+1. 检查后端是否运行:
+```powershell
+Invoke-WebRequest -Uri http://localhost:5000/health
+```
+或
+```cmd
+curl http://localhost:5000/health
+```
+
+2. 检查 Windows 防火墙设置
+3. 如果在设备上测试，将 `api.js` 中的 localhost 改为电脑 IP
+
+**macOS/Linux:**
 1. 检查后端是否运行: `curl http://localhost:5000/health`
 2. 如果在设备上测试，将 `api.js` 中的 localhost 改为电脑 IP
 3. 确保防火墙允许端口 5000
+
+### PowerShell 执行策略错误 (Windows)
+
+如果遇到 "无法加载文件，因为在此系统上禁止运行脚本" 错误:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
 
 ### 文件导入失败 / File Import Failed
 - 确保文件是 TXT 格式
